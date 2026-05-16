@@ -1,4 +1,4 @@
-import type { UserRole } from "@/generated/prisma/enums";
+import type { UserRole } from "@/generated/prisma";
 
 declare module "next-auth" {
   interface Session {
@@ -22,3 +22,4 @@ declare module "next-auth/jwt" {
     role?: UserRole;
   }
 }
+

@@ -7,7 +7,7 @@ import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import { z } from "zod";
 import { db } from "@/lib/db";
-import type { UserRole } from "@/generated/prisma/enums";
+import type { UserRole } from "@/generated/prisma";
 
 const credentialsSchema = z.object({
   email: z.string().email(),
@@ -100,3 +100,4 @@ export const authConfig: NextAuthConfig = {
 };
 
 export const { handlers, auth, signIn, signOut } = NextAuth(authConfig);
+

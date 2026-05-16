@@ -1,5 +1,5 @@
 import { cache } from "react";
-import type { UserRole } from "@/generated/prisma/enums";
+import type { UserRole } from "@/generated/prisma";
 import { db } from "@/lib/db";
 
 const emails: Record<UserRole, string> = {
@@ -21,4 +21,5 @@ export const getDemoUser = cache(async (role: UserRole) => {
   }
   return user;
 });
+
 

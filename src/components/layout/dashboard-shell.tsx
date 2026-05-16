@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import type { UserRole } from "@/generated/prisma/enums";
+import type { UserRole } from "@/generated/prisma";
 
 const navItems: Record<
   UserRole,
@@ -196,3 +196,4 @@ export function DashboardShell({
     </div>
   );
 }
+
