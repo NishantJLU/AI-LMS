@@ -14,6 +14,9 @@ jobs:
       DATABASE_URL: "postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
       NEXT_TELEMETRY_DISABLED: 1
       AUTH_SECRET: "mock-secret-at-least-32-characters-long-for-authjs"
+      # Skip linting and type checking during 'next build' to handle them separately for clearer logs
+      NEXT_SKIP_TYPECHECK: 1
+      NEXT_SKIP_LINT: 1
 
     steps:
     - uses: actions/checkout@v4
@@ -33,8 +36,11 @@ jobs:
     - name: Check Prisma Schema
       run: npx prisma validate
 
-    - name: Build & Type Check
-      run: npm run build
+    - name: Type Check (TypeScript)
+      run: npx tsc --noEmit
 
     - name: Lint Check
       run: npm run lint
+
+    - name: Build Next.js
+      run: npm run build
